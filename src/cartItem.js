@@ -1,55 +1,8 @@
 import React from 'react'
 import './App.css'
 
-class CartItem extends React.Component {
-    // constructor(){
-    //     super()
-        // this.state = {
-        //     item : 'phone',
-        //     price: '999',
-        //     quantity: 1,
-        //     img: ''
-    //     }
-        // this.increment = this.increment.bind(this)
-        // or use arrow function
-
-
-    increment = () => {
-         //setState is asychrounous so 
-        //dont depend on this.state object because it may get
-        //rendered even the request is not finished
-        //thats why we pass an extra callback
-        // console.log(this.state);
-        // function to set state in react
-        // set state form 1
-        // this.setState({
-        //     quantity: this.state.quantity + 1
-        // })
-        
-        // set state form 2
-        this.setState((prevState) => {
-            return {
-                quantity: prevState.quantity + 1
-            }
-        }, () => {
-            return(
-                console.log(this.state)
-            )
-        })
-    }
-
-    decrement = () => {
-        this.setState((prevState) => {
-            if(prevState.quantity === 0){
-                return 
-            }
-            return{
-                quantity: prevState.quantity - 1
-            }
-        })
-    }
-    render(){
-        const {item, price, quantity} = this.props.product
+const CartItem = (props) => {
+        const {item, price, quantity} = props.product
         return(<div className='cart-item'>
             <div className='left-block'>
                 <img style={Styles.image}/>
@@ -63,18 +16,17 @@ class CartItem extends React.Component {
                     <i 
                     className="fas fa-plus-circle action-icons"
                     // bind here or in constructor of class
-                    onClick={this.increment} ></i> 
+                    onClick={() => props.handleIncreaseQuantity(props.product)} ></i> 
                      <i 
                      className="fas fa-minus-circle action-icons"
-                     onClick = {this.decrement}></i>
+                     onClick = {() => props.handleDecreaseQuantity(props.product)}></i>
                      <i 
                      className="fas fa-trash-alt action-icons"
-                     onClick={this.increment}></i>
+                     onClick={() => props.removeProduct(props.product)}></i>
                 </div>
             </div>
         </div>
         );
-    }
 }
 
 
