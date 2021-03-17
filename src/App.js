@@ -15,7 +15,7 @@ class App extends React.Component {
                 item : 'phone',
                 price: '999',
                 quantity: 1,
-                img: '',
+                img: 'https://images-na.ssl-images-amazon.com/images/I/71ZOtNdaZCL._SL1500_.jpg',
                 id: 1
             },
 
@@ -23,7 +23,7 @@ class App extends React.Component {
                 item : 'Watch',
                 price: '500',
                 quantity: 1,
-                img: '',
+                img: 'https://images-na.ssl-images-amazon.com/images/I/61dDSWwu%2BJL._UL1102_.jpg',
                 id: 2
             },
 
@@ -31,7 +31,7 @@ class App extends React.Component {
                 item : 'computer',
                 price: '10000',
                 quantity: 1,
-                img: '',
+                img: 'https://images-na.ssl-images-amazon.com/images/I/816DJLTMWuL._SL1500_.jpg',
                 id: 3
             }
         ]
@@ -80,6 +80,15 @@ getCartCount = () => {
     return CartCount
 }
 
+getCartTotal = () => {
+  const {products} = this.state
+  let cartTotal = 0
+  products.map((product) => {
+
+    cartTotal += parseInt(product.price * product.quantity)
+  })
+  return cartTotal
+}
   render(){
     const {products} = this.state
     return (
@@ -93,6 +102,7 @@ getCartCount = () => {
           removeProduct = {this.removeProduct}
           products = {products}
         />
+        <div className='cart-total'><h1>TOTAL = {this.getCartTotal()}</h1></div>
       </div>
     );
   }

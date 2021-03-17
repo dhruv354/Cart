@@ -2,10 +2,10 @@ import React from 'react'
 import './App.css'
 
 const CartItem = (props) => {
-        const {item, price, quantity} = props.product
+        const {item, price, quantity, img} = props.product
         return(<div className='cart-item'>
             <div className='left-block'>
-                <img style={Styles.image}/>
+                <img style={Styles.image} src={img}/>
             </div>
             <div className='right-block'>
                 <div style={{fontSize: 30}}>{item}</div>
