@@ -7,23 +7,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+.cart{
+  display: flex;
+  flex-direction: column;
+}
 .cart-item{
   display: inline-flex;
   margin: 20px  10px;
+  /* background-color: blue; */
 }
+
+/* img{
+  background-color: red;
+  width: 200px;
+  height: 200px;
+} */
 
 .cart-item .right-block{
   padding: 0 20px;
+  margin-left: 10px;
 }
 .cart-item-actions{
   margin-top: 20px;
+
 }
 .action-icons{
   height: 25px;
   width: 25px;
-  margin-right: 10px;
+  margin-right: 0px;
+  zoom: 220%;
 }
 .action-icons:hover{
   cursor: pointer;
 }
+
 
