@@ -2,17 +2,17 @@ import React from 'react'
 import './App.css'
 
 class CartItem extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            item : 'phone',
-            price: '999',
-            quantity: 1,
-            img: ''
-        }
+    // constructor(){
+    //     super()
+        // this.state = {
+        //     item : 'phone',
+        //     price: '999',
+        //     quantity: 1,
+        //     img: ''
+    //     }
         // this.increment = this.increment.bind(this)
         // or use arrow function
-    }
+
 
     increment = () => {
          //setState is asychrounous so 
@@ -40,7 +40,7 @@ class CartItem extends React.Component {
 
     decrement = () => {
         this.setState((prevState) => {
-            if(prevState.quantity == 0){
+            if(prevState.quantity === 0){
                 return 
             }
             return{
@@ -49,7 +49,7 @@ class CartItem extends React.Component {
         })
     }
     render(){
-        const {item, price, quantity} = this.state
+        const {item, price, quantity} = this.props.product
         return(<div className='cart-item'>
             <div className='left-block'>
                 <img style={Styles.image}/>
